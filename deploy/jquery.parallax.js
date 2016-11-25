@@ -66,6 +66,9 @@
 
   function Plugin(element, options) {
 
+    // set 3D support, as commented on initialize
+    Plugin.prototype.transform3DSupport = Plugin.prototype.transformSupport('3D');
+    
     // DOM Context
     this.element = element;
 
@@ -207,7 +210,9 @@
   Plugin.prototype.orientationSupport = !!window.DeviceOrientationEvent;
   Plugin.prototype.orientationStatus = 0;
   Plugin.prototype.transform2DSupport = Plugin.prototype.transformSupport('2D');
-  Plugin.prototype.transform3DSupport = Plugin.prototype.transformSupport('3D');
+  
+  // commented for later to avoid body conflict
+  Plugin.prototype.transform3DSupport = false;
   Plugin.prototype.propertyCache = {};
 
   Plugin.prototype.initialise = function() {
